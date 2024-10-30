@@ -4,5 +4,13 @@
     "spec": {
       "requestValue": "a.b.c.and.d"
     }
+  },
+  {
+    "operation": "default",
+    "spec": {
+      "default": {
+        "value": "DEFAULT_VALUE"
+      }
+    }
   }
 ]

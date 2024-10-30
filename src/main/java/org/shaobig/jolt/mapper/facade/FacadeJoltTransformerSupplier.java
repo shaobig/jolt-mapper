@@ -10,6 +10,7 @@ import org.shaobig.jolt.mapper.transformer.entity.jolt.JoltTransformer;
 import org.shaobig.jolt.mapper.transformer.entity.jolt.spec.JoltSpecTransformerFactory;
 import org.shaobig.jolt.mapper.transformer.entity.jolt.spec.MapStringObjectJoltSpecTransformerFactory;
 import org.shaobig.jolt.mapper.transformer.entity.typeReference.ObjectMapperTypeReferenceTransformerFactory;
+import org.shaobig.jolt.mapper.transformer.entity.typeReference.TypeReferenceTransformerFactory;
 
 import java.util.Map;
 
@@ -21,7 +22,8 @@ public class FacadeJoltTransformerSupplier<T> extends JoltTransformerSupplier<T>
 
     @Override
     public JoltTransformer<T> get() {
-        JoltSpecTransformerFactory<Object, Map<String, Object>> joltSpecTransformerFactory = new MapStringObjectJoltSpecTransformerFactory(new StringChainrSupplier(getPath()).get(), new ObjectMapperTypeReferenceTransformerFactory<>(new TypeReference<>() {}));
+        TypeReferenceTransformerFactory<Map<String, Object>> typeReferenceTransformerFactory = new ObjectMapperTypeReferenceTransformerFactory<>(new TypeReference<>() {});
+        JoltSpecTransformerFactory<Object, Map<String, Object>> joltSpecTransformerFactory = new MapStringObjectJoltSpecTransformerFactory(new StringChainrSupplier(getPath()).get(), typeReferenceTransformerFactory);
         return new ClassTypeJoltTransformerFactory<>(joltSpecTransformerFactory, new ObjectMapperClassTypeTransformerFactory<>(getClassType())).getTransformer();
     }
 

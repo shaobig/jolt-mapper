@@ -1,0 +1,8 @@
+[
+  {
+    "operation": "shift",
+    "spec": {
+      "requestValue": "a.b.c.and.d"
+    }
+  }
+]

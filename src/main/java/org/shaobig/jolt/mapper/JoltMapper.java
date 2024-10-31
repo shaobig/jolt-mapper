@@ -1,8 +1,8 @@
 package org.shaobig.jolt.mapper;
 
 import org.shaobig.jolt.mapper.facade.FacadeJoltTransformerSupplier;
-import org.shaobig.jolt.mapper.transformer.entity.Transformer;
-import org.shaobig.jolt.mapper.transformer.entity.jolt.JoltTransformer;
+import org.shaobig.jolt.mapper.transformer.Transformer;
+import org.shaobig.jolt.mapper.transformer.jolt.JoltTransformer;
 
 public class JoltMapper<T> implements Transformer<T> {
 

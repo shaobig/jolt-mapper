@@ -1,6 +1,6 @@
 package org.shaobig.jolt.mapper.facade;
 
-import org.shaobig.jolt.mapper.transformer.entity.jolt.JoltTransformer;
+import org.shaobig.jolt.mapper.transformer.jolt.JoltTransformer;
 
 import java.util.function.Supplier;
 

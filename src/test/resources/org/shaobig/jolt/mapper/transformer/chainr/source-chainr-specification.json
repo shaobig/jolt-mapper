@@ -1,0 +1,14 @@
+[
+  {
+    "operation": "shift",
+    "spec": {
+      "INPUT_KEY": "OUTPUT_KEY"
+    }
+  },
+  {
+    "operation": "default",
+    "spec": {
+      "DEFAULT_KEY": "DEFAULT_VALUE"
+    }
+  }
+]

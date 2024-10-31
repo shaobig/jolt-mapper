@@ -1,16 +1,15 @@
 package org.shaobig.jolt.mapper.facade;
 
-import com.bazaarvoice.jolt.Chainr;
 import com.fasterxml.jackson.core.type.TypeReference;
-import org.shaobig.jolt.mapper.transformer.entity.chainr.StringChainrSupplier;
-import org.shaobig.jolt.mapper.transformer.entity.classType.ClassTypeTransformerFactory;
-import org.shaobig.jolt.mapper.transformer.entity.classType.ObjectMapperClassTypeTransformerFactory;
-import org.shaobig.jolt.mapper.transformer.entity.jolt.ClassTypeJoltTransformerFactory;
-import org.shaobig.jolt.mapper.transformer.entity.jolt.JoltTransformer;
-import org.shaobig.jolt.mapper.transformer.entity.jolt.spec.JoltSpecTransformerFactory;
-import org.shaobig.jolt.mapper.transformer.entity.jolt.spec.MapStringObjectJoltSpecTransformerFactory;
-import org.shaobig.jolt.mapper.transformer.entity.typeReference.ObjectMapperTypeReferenceTransformerFactory;
-import org.shaobig.jolt.mapper.transformer.entity.typeReference.TypeReferenceTransformerFactory;
+import org.shaobig.jolt.mapper.transformer.chainr.FromSpecChainrSupplier;
+import org.shaobig.jolt.mapper.transformer.chainr.specification.StringChainrSpecificationSupplier;
+import org.shaobig.jolt.mapper.transformer.classType.ObjectMapperClassTypeTransformerFactory;
+import org.shaobig.jolt.mapper.transformer.jolt.ClassTypeJoltTransformerFactory;
+import org.shaobig.jolt.mapper.transformer.jolt.JoltTransformer;
+import org.shaobig.jolt.mapper.transformer.jolt.spec.JoltSpecTransformerFactory;
+import org.shaobig.jolt.mapper.transformer.jolt.spec.MapStringObjectJoltSpecTransformerFactory;
+import org.shaobig.jolt.mapper.transformer.typeReference.ObjectMapperTypeReferenceTransformerFactory;
+import org.shaobig.jolt.mapper.transformer.typeReference.TypeReferenceTransformerFactory;
 
 import java.util.Map;
 
@@ -23,7 +22,7 @@ public class FacadeJoltTransformerSupplier<T> extends JoltTransformerSupplier<T>
     @Override
     public JoltTransformer<T> get() {
         TypeReferenceTransformerFactory<Map<String, Object>> typeReferenceTransformerFactory = new ObjectMapperTypeReferenceTransformerFactory<>(new TypeReference<>() {});
-        JoltSpecTransformerFactory<Object, Map<String, Object>> joltSpecTransformerFactory = new MapStringObjectJoltSpecTransformerFactory(new StringChainrSupplier(getPath()).get(), typeReferenceTransformerFactory);
+        JoltSpecTransformerFactory<Object, Map<String, Object>> joltSpecTransformerFactory = new MapStringObjectJoltSpecTransformerFactory(new FromSpecChainrSupplier(new StringChainrSpecificationSupplier(this::getPath)).get(), typeReferenceTransformerFactory);
         return new ClassTypeJoltTransformerFactory<>(joltSpecTransformerFactory, new ObjectMapperClassTypeTransformerFactory<>(getClassType())).getTransformer();
     }
 

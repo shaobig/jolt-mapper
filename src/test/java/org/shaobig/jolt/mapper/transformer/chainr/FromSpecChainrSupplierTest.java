@@ -1,7 +1,9 @@
 package org.shaobig.jolt.mapper.transformer.chainr;
 
+import com.bazaarvoice.jolt.Chainr;
 import com.bazaarvoice.jolt.JsonUtils;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -12,6 +14,7 @@ import org.shaobig.jolt.mapper.transformer.chainr.specification.ChainrSpecificat
 import java.util.List;
 import java.util.stream.Stream;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class FromSpecChainrSupplierTest {
@@ -35,10 +38,21 @@ class FromSpecChainrSupplierTest {
     @ParameterizedTest
     @MethodSource(value = "getWrongSpecificationExceptionSource")
     void getWrongSpecificationException(String sourcePath) {
-        List<Object> sourceBadSpecificationList = JsonUtils.classpathToList(sourcePath);
-        Mockito.when(chainrSpecificationSupplier.get()).thenReturn(sourceBadSpecificationList);
+        List<Object> sourceWrongSpecificationList = JsonUtils.classpathToList(sourcePath);
+        Mockito.when(chainrSpecificationSupplier.get()).thenReturn(sourceWrongSpecificationList);
 
         assertThrows(WrongSpecificationException.class, () -> fromSpecChainrSupplier.get());
+    }
+
+    @Test
+    void get() {
+        List<Object> sourceSpecificationList = JsonUtils.classpathToList("/org/shaobig/jolt/mapper/transformer/chainr/source-chainr-specification.json");
+        Mockito.when(chainrSpecificationSupplier.get()).thenReturn(sourceSpecificationList);
+
+        Chainr actual = fromSpecChainrSupplier.get();
+
+        Chainr expected = Chainr.fromSpec(JsonUtils.classpathToList("/org/shaobig/jolt/mapper/transformer/chainr/expected-chainr-specification.json"));
+        assertThat(expected).usingRecursiveComparison().isEqualTo(actual);
     }
 
 }

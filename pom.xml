@@ -14,6 +14,7 @@
         <jolt.version>0.1.8</jolt.version>
         <junit.version>5.10.3</junit.version>
         <mockito.version>5.11.0</mockito.version>
+        <assertj.version>3.25.3</assertj.version>
     </properties>
 
     <dependencies>
@@ -45,6 +46,11 @@
             <artifactId>mockito-core</artifactId>
             <version>${mockito.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj.version}</version>
         </dependency>
     </dependencies>
 

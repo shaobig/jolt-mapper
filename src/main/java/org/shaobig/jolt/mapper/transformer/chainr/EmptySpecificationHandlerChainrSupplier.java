@@ -6,11 +6,11 @@ import org.shaobig.jolt.mapper.transformer.chainr.specification.ChainrSpecificat
 
 import java.util.List;
 
-public class EmptySpecificationExceptionHandlerChainrSupplier extends ChainrSupplier {
+public class EmptySpecificationHandlerChainrSupplier extends ChainrSupplier {
 
     private ChainrSupplier chainrSupplier;
 
-    public EmptySpecificationExceptionHandlerChainrSupplier(ChainrSpecificationSupplier<String> chainrSpecificationSupplier, ChainrSupplier chainrSupplier) {
+    public EmptySpecificationHandlerChainrSupplier(ChainrSpecificationSupplier<String> chainrSpecificationSupplier, ChainrSupplier chainrSupplier) {
         super(chainrSpecificationSupplier);
         this.chainrSupplier = chainrSupplier;
     }

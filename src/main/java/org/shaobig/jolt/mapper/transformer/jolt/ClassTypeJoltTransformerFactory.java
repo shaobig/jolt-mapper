@@ -9,7 +9,7 @@ public class ClassTypeJoltTransformerFactory<T> extends JoltTransformerFactory<T
 
     private ClassTypeTransformerFactory<T> classTypeTransformerFactory;
 
-    public ClassTypeJoltTransformerFactory(JoltSpecTransformerFactory<Object, Map<String, Object>> joltSpecTransformerFactory, ClassTypeTransformerFactory<T> classTypeTransformerFactory) {
+    public ClassTypeJoltTransformerFactory(JoltSpecTransformerFactory<Object> joltSpecTransformerFactory, ClassTypeTransformerFactory<T> classTypeTransformerFactory) {
         super(joltSpecTransformerFactory);
         this.classTypeTransformerFactory = classTypeTransformerFactory;
     }

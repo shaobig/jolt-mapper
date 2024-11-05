@@ -5,15 +5,15 @@ import org.shaobig.jolt.mapper.transformer.typeReference.TypeReferenceTransforme
 
 import java.util.Map;
 
-public class MapStringObjectJoltSpecTransformerFactory extends JoltSpecTransformerFactory<Object, Map<String, Object>> {
+public class MapStringObjectJoltSpecTransformerFactory extends JoltSpecTransformerFactory<Object> {
 
     public MapStringObjectJoltSpecTransformerFactory(Chainr chainr, TypeReferenceTransformerFactory<Map<String, Object>> typeReferenceTransformerFactory) {
         super(chainr, typeReferenceTransformerFactory);
     }
 
     @Override
-    public JoltSpecTransformer<Object, Map<String, Object>> getTransformer() {
-        return new MapStringObjectJoltSpecTransformer(getChainr(), getTypeReferenceTransformerFactory().getTransformer());
+    public JoltSpecTransformer<Object> getTransformer() {
+        return new ChainrJoltSpecTransformer(getChainr(), getTypeReferenceTransformerFactory().getTransformer());
     }
 
 }

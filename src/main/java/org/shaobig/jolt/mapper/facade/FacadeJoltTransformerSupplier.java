@@ -22,7 +22,7 @@ public class FacadeJoltTransformerSupplier<T> extends JoltTransformerSupplier<T>
     @Override
     public JoltTransformer<T> get() {
         TypeReferenceTransformerFactory<Map<String, Object>> typeReferenceTransformerFactory = new ObjectMapperTypeReferenceTransformerFactory<>(new TypeReference<>() {});
-        JoltSpecTransformerFactory<Object, Map<String, Object>> joltSpecTransformerFactory = new MapStringObjectJoltSpecTransformerFactory(new FromSpecChainrSupplier(new StringChainrSpecificationSupplier(this::getPath)).get(), typeReferenceTransformerFactory);
+        JoltSpecTransformerFactory<Object> joltSpecTransformerFactory = new MapStringObjectJoltSpecTransformerFactory(new FromSpecChainrSupplier(new StringChainrSpecificationSupplier(this::getPath)).get(), typeReferenceTransformerFactory);
         return new ClassTypeJoltTransformerFactory<>(joltSpecTransformerFactory, new ObjectMapperClassTypeTransformerFactory<>(getClassType())).getTransformer();
     }
 

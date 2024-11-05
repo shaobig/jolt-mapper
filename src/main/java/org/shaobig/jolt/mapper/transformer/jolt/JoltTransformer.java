@@ -7,17 +7,17 @@ import java.util.Map;
 
 public abstract class JoltTransformer<T> implements Transformer<T> {
 
-    private JoltSpecTransformer<Object, Map<String, Object>> joltSpecTransformer;
+    private JoltSpecTransformer<Object> joltSpecTransformer;
 
-    public JoltTransformer(JoltSpecTransformer<Object, Map<String, Object>> joltSpecTransformer) {
+    public JoltTransformer(JoltSpecTransformer<Object> joltSpecTransformer) {
         this.joltSpecTransformer = joltSpecTransformer;
     }
 
-    public JoltSpecTransformer<Object, Map<String, Object>> getJoltSpecTransformer() {
+    public JoltSpecTransformer<Object> getJoltSpecTransformer() {
         return joltSpecTransformer;
     }
 
-    public void setJoltSpecTransformer(JoltSpecTransformer<Object, Map<String, Object>> joltSpecTransformer) {
+    public void setJoltSpecTransformer(JoltSpecTransformer<Object> joltSpecTransformer) {
         this.joltSpecTransformer = joltSpecTransformer;
     }
 

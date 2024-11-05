@@ -3,21 +3,19 @@ package org.shaobig.jolt.mapper.transformer.jolt;
 import org.shaobig.jolt.mapper.transformer.TransformerFactory;
 import org.shaobig.jolt.mapper.transformer.jolt.spec.JoltSpecTransformerFactory;
 
-import java.util.Map;
-
 public abstract class JoltTransformerFactory<T> implements TransformerFactory<T, JoltTransformer<T>> {
 
-    private JoltSpecTransformerFactory<Object, Map<String, Object>> joltSpecTransformerFactory;
+    private JoltSpecTransformerFactory<Object> joltSpecTransformerFactory;
 
-    public JoltTransformerFactory(JoltSpecTransformerFactory<Object, Map<String, Object>> joltSpecTransformerFactory) {
+    public JoltTransformerFactory(JoltSpecTransformerFactory<Object> joltSpecTransformerFactory) {
         this.joltSpecTransformerFactory = joltSpecTransformerFactory;
     }
 
-    public JoltSpecTransformerFactory<Object, Map<String, Object>> getJoltSpecTransformerFactory() {
+    public JoltSpecTransformerFactory<Object> getJoltSpecTransformerFactory() {
         return joltSpecTransformerFactory;
     }
 
-    public void setJoltSpecTransformerFactory(JoltSpecTransformerFactory<Object, Map<String, Object>> joltSpecTransformerFactory) {
+    public void setJoltSpecTransformerFactory(JoltSpecTransformerFactory<Object> joltSpecTransformerFactory) {
         this.joltSpecTransformerFactory = joltSpecTransformerFactory;
     }
 

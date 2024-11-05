@@ -5,9 +5,9 @@ import org.shaobig.jolt.mapper.transformer.typeReference.TypeReferenceTransforme
 
 import java.util.Map;
 
-public class MapStringObjectJoltSpecTransformer extends JoltSpecTransformer<Object, Map<String, Object>> {
+public class ChainrJoltSpecTransformer extends JoltSpecTransformer<Object> {
 
-    public MapStringObjectJoltSpecTransformer(Chainr chainr, TypeReferenceTransformer<Map<String, Object>> typeReferenceTransformer) {
+    public ChainrJoltSpecTransformer(Chainr chainr, TypeReferenceTransformer<Map<String, Object>> typeReferenceTransformer) {
         super(chainr, typeReferenceTransformer);
     }
 

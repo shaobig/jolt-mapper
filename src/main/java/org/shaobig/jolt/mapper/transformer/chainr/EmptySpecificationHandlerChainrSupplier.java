@@ -4,8 +4,6 @@ import com.bazaarvoice.jolt.Chainr;
 import org.shaobig.jolt.mapper.exception.EmptySpecificationException;
 import org.shaobig.jolt.mapper.transformer.chainr.specification.ChainrSpecificationSupplier;
 
-import java.util.List;
-
 public class EmptySpecificationHandlerChainrSupplier extends ChainrSupplier {
 
     private ChainrSupplier chainrSupplier;
@@ -17,8 +15,7 @@ public class EmptySpecificationHandlerChainrSupplier extends ChainrSupplier {
 
     @Override
     public Chainr get() {
-        List<Object> specificationList = getChainrSpecificationSupplier().get();
-        if (specificationList.isEmpty()) {
+        if (getChainrSpecificationSupplier().get().isEmpty()) {
             throw new EmptySpecificationException("The JOLT specification should not be empty");
         }
         return getChainrSupplier().get();

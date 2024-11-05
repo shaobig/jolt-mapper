@@ -9,7 +9,7 @@ public class ClassTypeJoltTransformer<T> extends JoltTransformer<T> {
 
     private ClassTypeTransformer<T> classTypeTransformer;
 
-    public ClassTypeJoltTransformer(JoltSpecTransformer<Object, Map<String, Object>> joltSpecTransformer, ClassTypeTransformer<T> classTypeTransformer) {
+    public ClassTypeJoltTransformer(JoltSpecTransformer<Object> joltSpecTransformer, ClassTypeTransformer<T> classTypeTransformer) {
         super(joltSpecTransformer);
         this.classTypeTransformer = classTypeTransformer;
     }

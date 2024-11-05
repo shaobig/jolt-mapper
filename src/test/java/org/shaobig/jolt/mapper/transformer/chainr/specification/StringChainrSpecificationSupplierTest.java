@@ -9,7 +9,7 @@ import java.util.function.Supplier;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class StringChainrSpecificationSupplierTest {
+class StringChainrSpecificationSupplierTest {
 
     private Supplier<String> pathSupplier;
     private StringChainrSpecificationSupplier stringChainrSpecificationSupplier;

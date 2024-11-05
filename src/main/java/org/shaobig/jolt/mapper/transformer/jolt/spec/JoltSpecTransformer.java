@@ -4,12 +4,14 @@ import com.bazaarvoice.jolt.Chainr;
 import org.shaobig.jolt.mapper.transformer.Transformer;
 import org.shaobig.jolt.mapper.transformer.typeReference.TypeReferenceTransformer;
 
-public abstract class JoltSpecTransformer<T, M> implements Transformer<T> {
+import java.util.Map;
+
+public abstract class JoltSpecTransformer<T> implements Transformer<T> {
 
     private Chainr chainr;
-    private TypeReferenceTransformer<M> typeReferenceTransformer;
+    private TypeReferenceTransformer<Map<String, Object>> typeReferenceTransformer;
 
-    public JoltSpecTransformer(Chainr chainr, TypeReferenceTransformer<M> typeReferenceTransformer) {
+    public JoltSpecTransformer(Chainr chainr, TypeReferenceTransformer<Map<String, Object>> typeReferenceTransformer) {
         this.chainr = chainr;
         this.typeReferenceTransformer = typeReferenceTransformer;
     }
@@ -22,11 +24,11 @@ public abstract class JoltSpecTransformer<T, M> implements Transformer<T> {
         this.chainr = chainr;
     }
 
-    public TypeReferenceTransformer<M> getTypeReferenceTransformer() {
+    public TypeReferenceTransformer<Map<String, Object>> getTypeReferenceTransformer() {
         return typeReferenceTransformer;
     }
 
-    public void setTypeReferenceTransformer(TypeReferenceTransformer<M> typeReferenceTransformer) {
+    public void setTypeReferenceTransformer(TypeReferenceTransformer<Map<String, Object>> typeReferenceTransformer) {
         this.typeReferenceTransformer = typeReferenceTransformer;
     }
 

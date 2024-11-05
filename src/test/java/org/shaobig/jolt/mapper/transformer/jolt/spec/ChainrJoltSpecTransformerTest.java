@@ -3,7 +3,6 @@ package org.shaobig.jolt.mapper.transformer.jolt.spec;
 import com.bazaarvoice.jolt.Chainr;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
 import org.shaobig.jolt.mapper.transformer.typeReference.TypeReferenceTransformer;
 
@@ -26,12 +25,10 @@ class ChainrJoltSpecTransformerTest {
 
     @Test
     void transformTypeReferenceTransformer() {
-        Object sourceInput = new Object();
+        Object sourceInput = "INPUT_VALUE";
         chainrJoltSpecTransformer.transform(sourceInput);
 
-        ArgumentCaptor<Object> argumentCaptor = ArgumentCaptor.forClass(Object.class);
-        Mockito.verify(typeReferenceTransformer).transform(argumentCaptor.capture());
-        Object expected = argumentCaptor.getValue();
+        Object expected = "INPUT_VALUE";
         Mockito.verify(typeReferenceTransformer).transform(expected);
     }
 

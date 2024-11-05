@@ -8,24 +8,20 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ObjectMapperTypeReferenceTransformerTest {
 
-    private ObjectMapperTypeReferenceTransformer<ResponseEntity> objectMapperTypeReferenceTransformer;
+    private ObjectMapperTypeReferenceTransformer<String> objectMapperTypeReferenceTransformer;
 
     @BeforeEach
     void init() {
-        this.objectMapperTypeReferenceTransformer = new ObjectMapperTypeReferenceTransformer<>(new TypeReference<ResponseEntity>() {});
+        this.objectMapperTypeReferenceTransformer = new ObjectMapperTypeReferenceTransformer<>(new TypeReference<>() {});
     }
     
     @Test
     void transform() {
-        Object sourceInput = new RequestEntity("SOURCE_VALUE");
-        ResponseEntity actual = objectMapperTypeReferenceTransformer.transform(sourceInput);
+        String sourceInput = "INPUT_VALUE";
+        String actual = objectMapperTypeReferenceTransformer.transform(sourceInput);
 
-        ResponseEntity expected = new ResponseEntity("SOURCE_VALUE");
+        String expected = "INPUT_VALUE";
         assertEquals(expected, actual);
     }
-
-    private record RequestEntity(String value) {}
-    
-    private record ResponseEntity(String value) {}
 
 }

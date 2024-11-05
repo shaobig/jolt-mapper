@@ -6,8 +6,8 @@ import org.shaobig.jolt.mapper.transformer.chainr.specification.StringChainrSpec
 import org.shaobig.jolt.mapper.transformer.classType.ObjectMapperClassTypeTransformerFactory;
 import org.shaobig.jolt.mapper.transformer.jolt.ClassTypeJoltTransformerFactory;
 import org.shaobig.jolt.mapper.transformer.jolt.JoltTransformer;
+import org.shaobig.jolt.mapper.transformer.jolt.spec.ChainrJoltSpecTransformerFactory;
 import org.shaobig.jolt.mapper.transformer.jolt.spec.JoltSpecTransformerFactory;
-import org.shaobig.jolt.mapper.transformer.jolt.spec.MapStringObjectJoltSpecTransformerFactory;
 import org.shaobig.jolt.mapper.transformer.typeReference.ObjectMapperTypeReferenceTransformerFactory;
 import org.shaobig.jolt.mapper.transformer.typeReference.TypeReferenceTransformerFactory;
 
@@ -22,7 +22,7 @@ public class FacadeJoltTransformerSupplier<T> extends JoltTransformerSupplier<T>
     @Override
     public JoltTransformer<T> get() {
         TypeReferenceTransformerFactory<Map<String, Object>> typeReferenceTransformerFactory = new ObjectMapperTypeReferenceTransformerFactory<>(new TypeReference<>() {});
-        JoltSpecTransformerFactory<Object> joltSpecTransformerFactory = new MapStringObjectJoltSpecTransformerFactory(new FromSpecChainrSupplier(new StringChainrSpecificationSupplier(this::getPath)).get(), typeReferenceTransformerFactory);
+        JoltSpecTransformerFactory<Object> joltSpecTransformerFactory = new ChainrJoltSpecTransformerFactory(new FromSpecChainrSupplier(new StringChainrSpecificationSupplier(this::getPath)).get(), typeReferenceTransformerFactory);
         return new ClassTypeJoltTransformerFactory<>(joltSpecTransformerFactory, new ObjectMapperClassTypeTransformerFactory<>(getClassType())).getTransformer();
     }
 

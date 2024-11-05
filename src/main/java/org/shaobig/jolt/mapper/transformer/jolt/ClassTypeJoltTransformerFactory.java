@@ -3,8 +3,6 @@ package org.shaobig.jolt.mapper.transformer.jolt;
 import org.shaobig.jolt.mapper.transformer.classType.ClassTypeTransformerFactory;
 import org.shaobig.jolt.mapper.transformer.jolt.spec.JoltSpecTransformerFactory;
 
-import java.util.Map;
-
 public class ClassTypeJoltTransformerFactory<T> extends JoltTransformerFactory<T> {
 
     private ClassTypeTransformerFactory<T> classTypeTransformerFactory;

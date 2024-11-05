@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class FromSpecChainrSupplierTest {
 
-    private ChainrSpecificationSupplier<String> chainrSpecificationSupplier;
+    private ChainrSpecificationSupplier chainrSpecificationSupplier;
     private FromSpecChainrSupplier fromSpecChainrSupplier;
 
     @BeforeEach

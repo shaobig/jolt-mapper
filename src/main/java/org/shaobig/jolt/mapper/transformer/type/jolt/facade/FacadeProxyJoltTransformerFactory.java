@@ -1,4 +1,4 @@
-package org.shaobig.jolt.mapper.transformer.facade;
+package org.shaobig.jolt.mapper.transformer.type.jolt.facade;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import org.shaobig.jolt.mapper.transformer.type.chainr.FromSpecChainrSupplier;
@@ -12,18 +12,20 @@ import org.shaobig.jolt.mapper.transformer.type.typeReference.ObjectMapperTypeRe
 import org.shaobig.jolt.mapper.transformer.type.typeReference.TypeReferenceTransformerFactory;
 
 import java.util.Map;
+import java.util.function.Supplier;
 
-public class FacadeJoltTransformerSupplier<T> extends JoltTransformerSupplier<T> {
+public class FacadeProxyJoltTransformerFactory<T> extends ProxyJoltTransformerFactory<T> {
 
-    public FacadeJoltTransformerSupplier(String path, Class<T> classType) {
-        super(path, classType);
+    public FacadeProxyJoltTransformerFactory(Supplier<String> pathSupplier, Supplier<Class<T>> classTypeSupplier) {
+        super(pathSupplier, classTypeSupplier);
     }
 
     @Override
-    public JoltTransformer<T> get() {
+    public JoltTransformer<T> getTransformer() {
         TypeReferenceTransformerFactory<Map<String, Object>> typeReferenceTransformerFactory = new ObjectMapperTypeReferenceTransformerFactory<>(new TypeReference<>() {});
-        JoltSpecTransformerFactory<Object> joltSpecTransformerFactory = new ChainrJoltSpecTransformerFactory(new FromSpecChainrSupplier(new StringChainrSpecificationSupplier(this::getPath)).get(), typeReferenceTransformerFactory);
-        return new ClassTypeJoltTransformerFactory<>(joltSpecTransformerFactory, new ObjectMapperClassTypeTransformerFactory<>(getClassType())).getTransformer();
+        JoltSpecTransformerFactory<Object> joltSpecTransformerFactory = new ChainrJoltSpecTransformerFactory(new FromSpecChainrSupplier(new StringChainrSpecificationSupplier(getPathSupplier())), typeReferenceTransformerFactory);
+        return new ClassTypeJoltTransformerFactory<>(joltSpecTransformerFactory, new ObjectMapperClassTypeTransformerFactory<>(getClassTypeSupplier().get())).getTransformer();
+
     }
 
 }

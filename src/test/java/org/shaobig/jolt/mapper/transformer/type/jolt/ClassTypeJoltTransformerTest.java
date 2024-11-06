@@ -4,7 +4,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.shaobig.jolt.mapper.transformer.type.classType.ClassTypeTransformer;
-import org.shaobig.jolt.mapper.transformer.type.jolt.ClassTypeJoltTransformer;
 import org.shaobig.jolt.mapper.transformer.type.jolt.spec.JoltSpecTransformer;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

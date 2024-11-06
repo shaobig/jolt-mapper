@@ -3,7 +3,6 @@ package org.shaobig.jolt.mapper.transformer.type.typeReference;
 import com.fasterxml.jackson.core.type.TypeReference;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.shaobig.jolt.mapper.transformer.type.typeReference.ObjectMapperTypeReferenceTransformer;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

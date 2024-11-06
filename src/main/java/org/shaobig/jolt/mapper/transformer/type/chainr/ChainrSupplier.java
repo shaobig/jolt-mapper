@@ -3,6 +3,7 @@ package org.shaobig.jolt.mapper.transformer.type.chainr;
 import com.bazaarvoice.jolt.Chainr;
 import org.shaobig.jolt.mapper.transformer.type.chainr.specification.ChainrSpecificationSupplier;
 
+import java.util.Objects;
 import java.util.function.Supplier;
 
 public abstract class ChainrSupplier implements Supplier<Chainr> {
@@ -19,6 +20,19 @@ public abstract class ChainrSupplier implements Supplier<Chainr> {
 
     public void setChainrSpecificationSupplier(ChainrSpecificationSupplier<String> chainrSpecificationSupplier) {
         this.chainrSpecificationSupplier = chainrSpecificationSupplier;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ChainrSupplier that = (ChainrSupplier) o;
+        return Objects.equals(chainrSpecificationSupplier, that.chainrSpecificationSupplier);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(chainrSpecificationSupplier);
     }
 
 }

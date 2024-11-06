@@ -1,27 +1,27 @@
 package org.shaobig.jolt.mapper.transformer.type.jolt.spec;
 
-import com.bazaarvoice.jolt.Chainr;
 import org.shaobig.jolt.mapper.transformer.TransformerFactory;
+import org.shaobig.jolt.mapper.transformer.type.chainr.ChainrSupplier;
 import org.shaobig.jolt.mapper.transformer.type.typeReference.TypeReferenceTransformerFactory;
 
 import java.util.Map;
 
 public abstract class JoltSpecTransformerFactory<T> implements TransformerFactory<T, JoltSpecTransformer<T>> {
 
-    private Chainr chainr;
+    private ChainrSupplier chainrSupplier;
     private TypeReferenceTransformerFactory<Map<String, Object>> typeReferenceTransformerFactory;
 
-    public JoltSpecTransformerFactory(Chainr chainr, TypeReferenceTransformerFactory<Map<String, Object>> typeReferenceTransformerFactory) {
-        this.chainr = chainr;
+    public JoltSpecTransformerFactory(ChainrSupplier chainrSupplier, TypeReferenceTransformerFactory<Map<String, Object>> typeReferenceTransformerFactory) {
+        this.chainrSupplier = chainrSupplier;
         this.typeReferenceTransformerFactory = typeReferenceTransformerFactory;
     }
 
-    public Chainr getChainr() {
-        return chainr;
+    public ChainrSupplier getChainrSupplier() {
+        return chainrSupplier;
     }
 
-    public void setChainr(Chainr chainr) {
-        this.chainr = chainr;
+    public void setChainrSupplier(ChainrSupplier chainrSupplier) {
+        this.chainrSupplier = chainrSupplier;
     }
 
     public TypeReferenceTransformerFactory<Map<String, Object>> getTypeReferenceTransformerFactory() {

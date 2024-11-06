@@ -2,7 +2,6 @@ package org.shaobig.jolt.mapper.transformer.type.classType;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.shaobig.jolt.mapper.transformer.type.classType.ObjectMapperClassTypeTransformer;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

@@ -9,7 +9,6 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.mockito.Mockito;
 import org.shaobig.jolt.mapper.transformer.exception.WrongSpecificationException;
-import org.shaobig.jolt.mapper.transformer.type.chainr.FromSpecChainrSupplier;
 import org.shaobig.jolt.mapper.transformer.type.chainr.specification.ChainrSpecificationSupplier;
 
 import java.util.List;
@@ -31,8 +30,8 @@ class FromSpecChainrSupplierTest {
 
     static Stream<Arguments> getWrongSpecificationExceptionSource() {
         return Stream.of(
-                Arguments.of("/org/shaobig/jolt/mapper/transformer/chainr/source-wrong-chainr-specification-1.json"),
-                Arguments.of("/org/shaobig/jolt/mapper/transformer/chainr/source-wrong-chainr-specification-2.json")
+                Arguments.of("/org/shaobig/jolt/mapper/transformer/type/chainr/source-wrong-chainr-specification-1.json"),
+                Arguments.of("/org/shaobig/jolt/mapper/transformer/type/chainr/source-wrong-chainr-specification-2.json")
         );
     }
 
@@ -47,12 +46,12 @@ class FromSpecChainrSupplierTest {
 
     @Test
     void get() {
-        List<Object> sourceSpecificationList = JsonUtils.classpathToList("/org/shaobig/jolt/mapper/transformer/chainr/source-chainr-specification.json");
+        List<Object> sourceSpecificationList = JsonUtils.classpathToList("/org/shaobig/jolt/mapper/transformer/type/chainr/source-chainr-specification.json");
         Mockito.when(chainrSpecificationSupplier.get()).thenReturn(sourceSpecificationList);
 
         Chainr actual = fromSpecChainrSupplier.get();
 
-        Chainr expected = Chainr.fromSpec(JsonUtils.classpathToList("/org/shaobig/jolt/mapper/transformer/chainr/expected-chainr-specification.json"));
+        Chainr expected = Chainr.fromSpec(JsonUtils.classpathToList("/org/shaobig/jolt/mapper/transformer/type/chainr/expected-chainr-specification.json"));
         assertThat(expected).usingRecursiveComparison().isEqualTo(actual);
     }
 

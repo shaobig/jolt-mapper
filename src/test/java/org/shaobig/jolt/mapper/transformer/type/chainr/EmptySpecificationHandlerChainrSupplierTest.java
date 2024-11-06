@@ -6,8 +6,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.shaobig.jolt.mapper.transformer.exception.EmptySpecificationException;
-import org.shaobig.jolt.mapper.transformer.type.chainr.ChainrSupplier;
-import org.shaobig.jolt.mapper.transformer.type.chainr.EmptySpecificationHandlerChainrSupplier;
 import org.shaobig.jolt.mapper.transformer.type.chainr.specification.ChainrSpecificationSupplier;
 
 import java.util.List;
@@ -38,13 +36,13 @@ class EmptySpecificationHandlerChainrSupplierTest {
     @Test
     void get() {
         List<Object> sourceSpecificationList = List.of(new Object());
-        Chainr sourceChainr = Chainr.fromSpec(JsonUtils.classpathToList("/org/shaobig/jolt/mapper/transformer/chainr/source-chainr-specification.json"));
+        Chainr sourceChainr = Chainr.fromSpec(JsonUtils.classpathToList("/org/shaobig/jolt/mapper/transformer/type/chainr/source-chainr-specification.json"));
         Mockito.when(chainrSpecificationSupplier.get()).thenReturn(sourceSpecificationList);
         Mockito.when(chainrSupplier.get()).thenReturn(sourceChainr);
 
         Chainr actual = emptySpecificationHandlerChainrSupplier.get();
 
-        Chainr expected = Chainr.fromSpec(JsonUtils.classpathToList("/org/shaobig/jolt/mapper/transformer/chainr/expected-chainr-specification.json"));
+        Chainr expected = Chainr.fromSpec(JsonUtils.classpathToList("/org/shaobig/jolt/mapper/transformer/type/chainr/expected-chainr-specification.json"));
         assertThat(expected).usingRecursiveComparison().isEqualTo(actual);
     }
 

@@ -3,7 +3,6 @@ package org.shaobig.jolt.mapper.transformer.type.chainr.specification;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.shaobig.jolt.mapper.transformer.type.chainr.specification.StringChainrSpecificationSupplier;
 
 import java.util.List;
 import java.util.function.Supplier;
@@ -23,7 +22,7 @@ class StringChainrSpecificationSupplierTest {
 
     @Test
     void get() {
-        String sourcePath = "/org/shaobig/jolt/mapper/transformer/chainr/specification/source-specification.json";
+        String sourcePath = "/org/shaobig/jolt/mapper/transformer/type/chainr/specification/source-specification.json";
         Mockito.when(pathSupplier.get()).thenReturn(sourcePath);
 
         List<String> actual = stringChainrSpecificationSupplier.get().stream()

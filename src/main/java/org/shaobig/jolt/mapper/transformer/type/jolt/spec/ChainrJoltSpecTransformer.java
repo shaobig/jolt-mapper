@@ -1,19 +1,19 @@
 package org.shaobig.jolt.mapper.transformer.type.jolt.spec;
 
-import com.bazaarvoice.jolt.Chainr;
+import org.shaobig.jolt.mapper.transformer.type.chainr.ChainrSupplier;
 import org.shaobig.jolt.mapper.transformer.type.typeReference.TypeReferenceTransformer;
 
 import java.util.Map;
 
 public class ChainrJoltSpecTransformer extends JoltSpecTransformer<Object> {
 
-    public ChainrJoltSpecTransformer(Chainr chainr, TypeReferenceTransformer<Map<String, Object>> typeReferenceTransformer) {
-        super(chainr, typeReferenceTransformer);
+    public ChainrJoltSpecTransformer(ChainrSupplier chainrSupplier, TypeReferenceTransformer<Map<String, Object>> typeReferenceTransformer) {
+        super(chainrSupplier, typeReferenceTransformer);
     }
 
     @Override
     public Object transform(Object input) {
-        return getChainr().transform(getTypeReferenceTransformer().transform(input));
+        return getChainrSupplier().get().transform(getTypeReferenceTransformer().transform(input));
     }
 
 }

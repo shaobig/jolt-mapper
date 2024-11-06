@@ -1,8 +1,9 @@
 package org.shaobig.jolt.mapper;
 
-import org.shaobig.jolt.mapper.transformer.facade.FacadeJoltTransformerSupplier;
 import org.shaobig.jolt.mapper.transformer.Transformer;
 import org.shaobig.jolt.mapper.transformer.type.jolt.JoltTransformer;
+import org.shaobig.jolt.mapper.transformer.type.jolt.facade.FacadeProxyJoltTransformerFactory;
+import org.shaobig.jolt.mapper.transformer.type.jolt.facade.ObjectGenericSupplier;
 
 public class JoltMapper<T> implements Transformer<T> {
 
@@ -13,7 +14,7 @@ public class JoltMapper<T> implements Transformer<T> {
     }
 
     public static <T> JoltMapper<T> create(String path, Class<T> classType) {
-        return new JoltMapper<>(new FacadeJoltTransformerSupplier<>(path, classType).get());
+        return new JoltMapper<>(new FacadeProxyJoltTransformerFactory<>(new ObjectGenericSupplier<>(path), new ObjectGenericSupplier<>(classType)).getTransformer());
     }
 
     @Override

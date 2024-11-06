@@ -9,7 +9,7 @@ public class JoltMapper<T> implements Transformer<T> {
 
     private JoltTransformer<T> joltTransformer;
 
-    private JoltMapper(JoltTransformer<T> joltTransformer) {
+    JoltMapper(JoltTransformer<T> joltTransformer) {
         this.joltTransformer = joltTransformer;
     }
 

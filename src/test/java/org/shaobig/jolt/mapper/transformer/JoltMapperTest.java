@@ -1,4 +1,4 @@
-package org.shaobig.jolt.mapper;
+package org.shaobig.jolt.mapper.transformer;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

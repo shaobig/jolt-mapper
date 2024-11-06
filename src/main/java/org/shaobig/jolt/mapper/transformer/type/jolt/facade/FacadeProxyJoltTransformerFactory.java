@@ -25,7 +25,6 @@ public class FacadeProxyJoltTransformerFactory<T> extends ProxyJoltTransformerFa
         TypeReferenceTransformerFactory<Map<String, Object>> typeReferenceTransformerFactory = new ObjectMapperTypeReferenceTransformerFactory<>(new TypeReference<>() {});
         JoltSpecTransformerFactory<Object> joltSpecTransformerFactory = new ChainrJoltSpecTransformerFactory(new FromSpecChainrSupplier(new StringChainrSpecificationSupplier(getPathSupplier())), typeReferenceTransformerFactory);
         return new ClassTypeJoltTransformerFactory<>(joltSpecTransformerFactory, new ObjectMapperClassTypeTransformerFactory<>(getClassTypeSupplier().get())).getTransformer();
-
     }
 
 }

@@ -8,7 +8,7 @@ import org.shaobig.jolt.mapper.transformer.type.jolt.spec.JoltSpecTransformer;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ClassTypeJoltTransformerTest {
+class ClassTypeJoltTransformerTest {
 
     private JoltSpecTransformer joltSpecTransformer;
     private ClassTypeTransformer classTypeTransformer;

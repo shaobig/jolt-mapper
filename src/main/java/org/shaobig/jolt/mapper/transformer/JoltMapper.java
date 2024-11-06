@@ -1,6 +1,5 @@
-package org.shaobig.jolt.mapper;
+package org.shaobig.jolt.mapper.transformer;
 
-import org.shaobig.jolt.mapper.transformer.Transformer;
 import org.shaobig.jolt.mapper.transformer.type.jolt.JoltTransformer;
 import org.shaobig.jolt.mapper.transformer.type.jolt.facade.FacadeProxyJoltTransformerFactory;
 import org.shaobig.jolt.mapper.transformer.type.jolt.facade.ObjectGenericSupplier;

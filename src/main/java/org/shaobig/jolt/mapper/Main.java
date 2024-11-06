@@ -1,5 +1,6 @@
 package org.shaobig.jolt.mapper;
 
+import org.shaobig.jolt.mapper.transformer.JoltMapper;
 import org.shaobig.jolt.mapper.transformer.RequestJson;
 
 public class Main {

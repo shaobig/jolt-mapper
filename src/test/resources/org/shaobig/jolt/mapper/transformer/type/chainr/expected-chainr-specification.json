@@ -2,15 +2,13 @@
   {
     "operation": "shift",
     "spec": {
-      "requestValue": "a.b.c.and.d"
+      "INPUT_KEY": "OUTPUT_KEY"
     }
   },
   {
     "operation": "default",
     "spec": {
-      "default": {
-        "value": "DEFAULT_VALUE"
-      }
+      "DEFAULT_KEY": "DEFAULT_VALUE"
     }
   }
 ]

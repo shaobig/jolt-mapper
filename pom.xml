@@ -37,6 +37,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
+        <jolt.version>0.1.8</jolt.version>
         <jackson.version>2.18.1</jackson.version>
         <junit.version>5.10.3</junit.version>
         <mockito.version>5.11.0</mockito.version>
@@ -49,6 +50,17 @@
     </properties>
 
     <dependencies>
+        <!-- JOLT -->
+        <dependency>
+            <groupId>com.bazaarvoice.jolt</groupId>
+            <artifactId>jolt-core</artifactId>
+            <version>${jolt.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.bazaarvoice.jolt</groupId>
+            <artifactId>json-utils</artifactId>
+            <version>${jolt.version}</version>
+        </dependency>
         <!-- JSON Builder -->
         <dependency>
             <groupId>io.shaobig</groupId>

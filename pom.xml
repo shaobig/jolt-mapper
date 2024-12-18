@@ -18,6 +18,7 @@
     </properties>
 
     <dependencies>
+        <!--JOLT dependencies -->
         <dependency>
             <groupId>com.bazaarvoice.jolt</groupId>
             <artifactId>jolt-core</artifactId>
@@ -27,6 +28,12 @@
             <groupId>com.bazaarvoice.jolt</groupId>
             <artifactId>json-utils</artifactId>
             <version>${jolt.version}</version>
+        </dependency>
+        <!-- JsonBuilder -->
+        <dependency>
+            <groupId>io.shaobig</groupId>
+            <artifactId>json-builder</artifactId>
+            <version>1.0</version>
         </dependency>
         <!-- Test -->
         <dependency>
